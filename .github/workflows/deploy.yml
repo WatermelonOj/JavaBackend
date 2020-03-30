@@ -9,6 +9,12 @@ jobs:
   deploy:
     if: github.repository == 'WatermelonOj/WatermelonBackend'
 
+    strategy:
+      matrix:
+        jdk_version: [11]
+        mysql_version: [5.7]
+        os: [ubuntu-latest]
+         
     services:
       mysql:
         image: mysql:5.7
@@ -38,6 +44,7 @@ jobs:
               --file pom.xml \
               -Dspring.config.location=docker/config/application.yml \
               deploy
+              
       - name: publish docker
         uses: Acerkoo/Publish-Docker-Github-Action@2.7.1
         with:
