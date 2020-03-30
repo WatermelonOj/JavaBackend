@@ -1,2 +1,2 @@
-# JavaBackend
+# WatermelonBackend
 the backend
