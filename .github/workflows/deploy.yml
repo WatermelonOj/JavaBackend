@@ -41,7 +41,7 @@ jobs:
       - name: publish docker
         uses: Acerkoo/Publish-Docker-Github-Action@2.7.1
         with:
-          name: registry.cn-hangzhou.aliyuncs.com/imewalker/test:latest
+          name: registry.cn-hangzhou.aliyuncs.com/watermelon/backend:latest
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: registry.cn-hangzhou.aliyuncs.com
