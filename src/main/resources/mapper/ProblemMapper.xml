@@ -15,9 +15,15 @@
         SELECT * FROM problem
     </select>
     <select id="findProblemByName" parameterType="java.lang.String" resultType="cn.watermelon.watermelonbackend.entity.Problem">
-        select * from problem where title CONCAT('%',#{part},'%')
+        select * from problem where title like '%${name}%'
     </select>
     <select id="findProblemById" parameterType="int" resultType="cn.watermelon.watermelonbackend.entity.Problem">
         select * from problem where id = #{id}
     </select>
+    <insert id="addProblem" parameterType="cn.watermelon.watermelonbackend.entity.Problem" useGeneratedKeys="true" keyProperty="problem_id">
+        insert into problem(problem_id, title, description, intput, output, sample_input, sample_output, hint, spj, contest_id, visible, tm_limit) values (#{id},#{title},#{description},#{input},#{output},#{sampleInput},#{sampleOutput},#{hint},#{isSpj},#{contestId},#{visible},#{tmLimit})
+    </insert>
+    <update id="updateProblem" parameterType = "cn.watermelon.watermelonbackend.entity.Problem">
+        update problem set title = #{title},description = #{description},input = #{input},output = #{output},sample_input =#{sampleInput},sample_output = #{sampleOutput},hint = #{hint},spj = #{isSpj},visible = #{visible},tm_limit = #{tmLimit} where problem_id = {id}
+    </update>
 </mapper>

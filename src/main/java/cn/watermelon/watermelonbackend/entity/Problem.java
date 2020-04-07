@@ -15,6 +15,24 @@ public class Problem implements Serializable {
     private int contestId;
     private boolean visible;
     private String tmLimit;
+    private String sampleInput;
+    private String sampleOutput;
+    private String memLimit;
+    public String getSampleInput() {
+        return sampleInput;
+    }
+
+    public void setSampleInput(String sampleInput) {
+        this.sampleInput = sampleInput;
+    }
+
+    public String getSampleOutput() {
+        return sampleOutput;
+    }
+
+    public void setSampleOutput(String sampleOutput) {
+        this.sampleOutput = sampleOutput;
+    }
 
     public int getId() {
         return id;

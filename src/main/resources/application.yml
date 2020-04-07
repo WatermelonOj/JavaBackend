@@ -7,7 +7,11 @@ spring:
     url: jdbc:mysql://localhost:3306/watermelon?characterEncoding=utf-8&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: zhang123
-
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 200MB
 #mybatis的相关配置
 mybatis:
   #mapper配置文件
@@ -16,3 +20,4 @@ mybatis:
   #开启驼峰命名
   configuration:
     map-underscore-to-camel-case: true
+

@@ -12,4 +12,5 @@ public interface ProblemMapper
     List<Problem> findAll();
     List<Problem> findProblemById(int id);
     List<Problem> findProblemByName(String name);
+    int addProblem(Problem problem);
 }
