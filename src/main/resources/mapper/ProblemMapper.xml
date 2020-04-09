@@ -10,6 +10,7 @@
         <result property="isSpj" column="is_spj"/>
         <result property="visible" column="visible"/>
         <result property="tmLimit" column="tm_limit"/>
+        <result property="memLimit" column="mem_limit"/>
     </resultMap>
     <select id="findAll" resultType="cn.watermelon.watermelonbackend.entity.Problem">
         SELECT * FROM problem
