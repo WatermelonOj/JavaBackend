@@ -3,6 +3,7 @@ package cn.watermelon.watermelonbackend.controller;
 import cn.watermelon.watermelonbackend.entity.Problem;
 import cn.watermelon.watermelonbackend.service.ProblemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,5 +21,15 @@ public class ProblemController
     public List<Problem> getAll()
     {
         return problemService.findAll();
+    }
+    @RequestMapping(value = "/name",method = RequestMethod.GET)
+    public List<Problem> getProblemByName(String name)
+    {
+        return problemService.findProblemByName(name);
+    }
+    @RequestMapping(value = "/id",method = RequestMethod.GET)
+    public List<Problem> getProblemById(@RequestBody int id)
+    {
+        return problemService.findProblemById(id);
     }
 }

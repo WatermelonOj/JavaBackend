@@ -22,9 +22,12 @@ public class ProblemServiceImpl implements ProblemService {
     {
         return problemMapper.findProblemByName(name);
     }
-    public List<Problem> FindProblemById(int id)
+    public List<Problem> findProblemById(int id)
     {
         return problemMapper.findProblemById(id);
     }
-
+    public int addProblem(Problem problem)
+    {
+        return problemMapper.addProblem(problem);
+    }
 }

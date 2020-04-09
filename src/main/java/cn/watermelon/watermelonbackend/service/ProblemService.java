@@ -7,5 +7,5 @@ import java.util.List;
 public interface ProblemService {
     List<Problem> findAll();
     List<Problem> findProblemByName(String name);
-    List<Problem> FindProblemById(int id);
+    List<Problem> findProblemById(int id);
 }
