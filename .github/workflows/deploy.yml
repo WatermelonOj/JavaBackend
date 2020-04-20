@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    if: github.repository == 'WatermelonOj/WatermelonBackend'
+    if: github.repository == 'WatermelonOj/WatermelonBacken'
 
     strategy:
       matrix:
