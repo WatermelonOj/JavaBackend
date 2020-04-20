@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.watermelon.watermelonbackend.mapper.ProblemMapper">
     <resultMap type="cn.watermelon.watermelonbackend.entity.Problem" id="problem">
-        <result property="id" column="id"/>
+        <result property="problemId" column="problem_id"/>
         <result property="title" column="title"/>
         <result property="input" column="input"/>
         <result property="output" column="output"/>
@@ -13,10 +13,10 @@
         <result property="memLimit" column="mem_limit"/>
     </resultMap>
     <select id="findAll" resultType="cn.watermelon.watermelonbackend.entity.Problem">
-        SELECT * FROM problem
+        SELECT * FROM `problem`
     </select>
     <select id="findProblemByName" parameterType="java.lang.String" resultType="cn.watermelon.watermelonbackend.entity.Problem">
-        select * from problem where title like '%${name}%'
+        select * from problem where title like '%#{name}%'
     </select>
     <select id="findProblemById" parameterType="int" resultType="cn.watermelon.watermelonbackend.entity.Problem">
         select * from problem where id = #{id}
