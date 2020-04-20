@@ -1,22 +1,33 @@
 package cn.watermelon.watermelonbackend.entity;
 
-import org.w3c.dom.Text;
-
 import java.io.Serializable;
 
 public class Problem implements Serializable {
-    private int id;
+
+    private int problemId;
+
     private String title;
+
     private String description;
+
     private String input;
+
     private String output;
+
     private String hint;
+
     private boolean isSpj;
+
     private int contestId;
+
     private boolean visible;
+
     private String tmLimit;
+
     private String sampleInput;
+
     private String sampleOutput;
+
     private String memLimit;
 
     public String getMemLimit() {
@@ -43,12 +54,12 @@ public class Problem implements Serializable {
         this.sampleOutput = sampleOutput;
     }
 
-    public int getId() {
-        return id;
+    public int getProblemId() {
+        return problemId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProblemId(int problemId) {
+        this.problemId = problemId;
     }
 
     public String getTitle() {
