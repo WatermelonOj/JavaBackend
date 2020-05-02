@@ -4,6 +4,8 @@ on: [pull_request]
 
 jobs:
   package:
+    if: github.repository == 'WatermelonOj/WatermelonBacken'
+    
     name: Package with JDK ${{ matrix.jdk_version }} and mysql ${{ matrix.mysql_version }}
 
     strategy:
