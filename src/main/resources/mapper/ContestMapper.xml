@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.watermelon.watermelonbackend.mapper.ContestMapper">
+    <resultMap type="cn.watermelon.watermelonbackend.entity.Contest" id="contest">
+        <result property="contestId" column="contest_id"/>
+        <result property="title" column="title"/>
+        <result property="description" column="description"/>
+        <result property="startTime" column="tart_time"/>
+        <result property="endTime" column="end_time"/>
+    </resultMap>
+    <select id="findAllContest" resultType="cn.watermelon.watermelonbackend.entity.Contest">
+        SELECT * FROM contest
+    </select>
+    <select id="findContestById" parameterType="int" resultType="cn.watermelon.watermelonbackend.entity.Contest">
+        select * from problem where problem_id = #{id}
+    </select>
+</mapper>

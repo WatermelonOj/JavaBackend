@@ -2,12 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.watermelon.watermelonbackend.mapper.ProblemMapper">
     <resultMap type="cn.watermelon.watermelonbackend.entity.Problem" id="problem">
-        <result property="id" column="id"/>
+        <result property="keyId" column="problem_id"/>
         <result property="title" column="title"/>
+        <result property="description" column="description"/>
         <result property="input" column="input"/>
         <result property="output" column="output"/>
         <result property="contestId" column="contest_id"/>
-        <result property="isSpj" column="is_spj"/>
+        <result property="isSpj" column="spj"/>
         <result property="visible" column="visible"/>
         <result property="tmLimit" column="tm_limit"/>
         <result property="memLimit" column="mem_limit"/>
@@ -19,7 +20,7 @@
         select * from problem where title like '%${name}%'
     </select>
     <select id="findProblemById" parameterType="int" resultType="cn.watermelon.watermelonbackend.entity.Problem">
-        select * from problem where id = #{id}
+        select * from problem where problem_id = #{id}
     </select>
     <insert id="addProblem" parameterType="cn.watermelon.watermelonbackend.entity.Problem" useGeneratedKeys="true" keyProperty="problem_id">
         insert into problem(problem_id, title, description, intput, output, sample_input, sample_output, hint, spj, contest_id, visible, tm_limit) values (#{id},#{title},#{description},#{input},#{output},#{sampleInput},#{sampleOutput},#{hint},#{isSpj},#{contestId},#{visible},#{tmLimit})

@@ -12,23 +12,22 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 @RestController
-@RequestMapping("/problem")
 public class ProblemController
 {
     @Autowired
     private ProblemService problemService;
-    @RequestMapping(value = "/all", method= RequestMethod.GET)
+    @RequestMapping(value = "/problem/all", method= RequestMethod.GET)
     public List<Problem> getAll()
     {
         return problemService.findAll();
     }
-    @RequestMapping(value = "/name",method = RequestMethod.GET)
+    @RequestMapping(value = "/problem/name",method = RequestMethod.GET)
     public List<Problem> getProblemByName(String name)
     {
         return problemService.findProblemByName(name);
     }
-    @RequestMapping(value = "/id",method = RequestMethod.GET)
-    public List<Problem> getProblemById(@RequestBody int id)
+    @RequestMapping(value = "/problem/id",method = RequestMethod.GET)
+    public List<Problem> getProblemById(int id)
     {
         return problemService.findProblemById(id);
     }

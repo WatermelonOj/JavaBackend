@@ -5,7 +5,7 @@ import org.w3c.dom.Text;
 import java.io.Serializable;
 
 public class Problem implements Serializable {
-    private int id;
+    private int keyId;
     private String title;
     private String description;
     private String input;
@@ -43,12 +43,12 @@ public class Problem implements Serializable {
         this.sampleOutput = sampleOutput;
     }
 
-    public int getId() {
-        return id;
+    public int getKeyId() {
+        return keyId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setKeyId(int keyId) {
+        this.keyId = keyId;
     }
 
     public String getTitle() {
