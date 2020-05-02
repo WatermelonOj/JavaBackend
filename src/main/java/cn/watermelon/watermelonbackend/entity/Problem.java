@@ -1,12 +1,11 @@
 package cn.watermelon.watermelonbackend.entity;
 
-<<<<<<< HEAD
 import org.w3c.dom.Text;
 
 import java.io.Serializable;
 
 public class Problem implements Serializable {
-    private int id;
+    private int keyId;
     private String title;
     private String description;
     private String input;
@@ -16,42 +15,8 @@ public class Problem implements Serializable {
     private int contestId;
     private boolean visible;
     private String tmLimit;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-=======
-import java.io.Serializable;
-
-public class Problem implements Serializable {
-
-    private int problemId;
-
-    private String title;
-
-    private String description;
-
-    private String input;
-
-    private String output;
-
-    private String hint;
-
-    private boolean isSpj;
-
-    private int contestId;
-
-    private boolean visible;
-
-    private String tmLimit;
-
     private String sampleInput;
-
     private String sampleOutput;
-
     private String memLimit;
 
     public String getMemLimit() {
@@ -78,13 +43,12 @@ public class Problem implements Serializable {
         this.sampleOutput = sampleOutput;
     }
 
-    public int getProblemId() {
-        return problemId;
+    public int getKeyId() {
+        return keyId;
     }
 
-    public void setProblemId(int problemId) {
-        this.problemId = problemId;
->>>>>>> dbeed8fb9adc7adadc42aef706c68dffd03163d5
+    public void setKeyId(int keyId) {
+        this.keyId = keyId;
     }
 
     public String getTitle() {

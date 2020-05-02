@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.watermelon.watermelonbackend.mapper.ContestWithProblemMapper">
+    <resultMap type="cn.watermelon.watermelonbackend.entity.ContestWithProblem" id="contest_with_problem">
+        <result property="contestId" column="contest_id"/>
+        <result property="problemId" column="problem_id"/>
+    </resultMap>
+    <select id="findProblemByContest" resultType="cn.watermelon.watermelonbackend.entity.Problem">
+        SELECT * FROM problem,contest_with_problem WHERE contest_with_problem.problem_id = problem.problem_id AND contest_with_problem.contest_id = #{id}
+    </select>
+</mapper>

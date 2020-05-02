@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProblemServiceImpl implements ProblemService {
+public class ProblemServiceImpl implements ProblemService
+{
     @Autowired
     private ProblemMapper problemMapper;
     @Override
