@@ -2,7 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.watermelon.watermelonbackend.mapper.ProblemMapper">
     <resultMap type="cn.watermelon.watermelonbackend.entity.Problem" id="problem">
+<<<<<<< HEAD
         <result property="id" column="id"/>
+=======
+        <result property="problemId" column="problem_id"/>
+>>>>>>> dbeed8fb9adc7adadc42aef706c68dffd03163d5
         <result property="title" column="title"/>
         <result property="input" column="input"/>
         <result property="output" column="output"/>
@@ -10,14 +14,33 @@
         <result property="isSpj" column="is_spj"/>
         <result property="visible" column="visible"/>
         <result property="tmLimit" column="tm_limit"/>
+<<<<<<< HEAD
     </resultMap>
     <select id="findAll" resultType="cn.watermelon.watermelonbackend.entity.Problem">
         SELECT * FROM problem
     </select>
     <select id="findProblemByName" parameterType="java.lang.String" resultType="cn.watermelon.watermelonbackend.entity.Problem">
         select * from problem where title CONCAT('%',#{part},'%')
+=======
+        <result property="memLimit" column="mem_limit"/>
+    </resultMap>
+    <select id="findAll" resultType="cn.watermelon.watermelonbackend.entity.Problem">
+        SELECT * FROM `problem`
+    </select>
+    <select id="findProblemByName" parameterType="java.lang.String" resultType="cn.watermelon.watermelonbackend.entity.Problem">
+        select * from problem where title like '%#{name}%'
+>>>>>>> dbeed8fb9adc7adadc42aef706c68dffd03163d5
     </select>
     <select id="findProblemById" parameterType="int" resultType="cn.watermelon.watermelonbackend.entity.Problem">
         select * from problem where id = #{id}
     </select>
+<<<<<<< HEAD
+=======
+    <insert id="addProblem" parameterType="cn.watermelon.watermelonbackend.entity.Problem" useGeneratedKeys="true" keyProperty="problem_id">
+        insert into problem(problem_id, title, description, intput, output, sample_input, sample_output, hint, spj, contest_id, visible, tm_limit) values (#{id},#{title},#{description},#{input},#{output},#{sampleInput},#{sampleOutput},#{hint},#{isSpj},#{contestId},#{visible},#{tmLimit})
+    </insert>
+    <update id="updateProblem" parameterType = "cn.watermelon.watermelonbackend.entity.Problem">
+        update problem set title = #{title},description = #{description},input = #{input},output = #{output},sample_input =#{sampleInput},sample_output = #{sampleOutput},hint = #{hint},spj = #{isSpj},visible = #{visible},tm_limit = #{tmLimit} where problem_id = {id}
+    </update>
+>>>>>>> dbeed8fb9adc7adadc42aef706c68dffd03163d5
 </mapper>

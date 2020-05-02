@@ -1,5 +1,6 @@
 package cn.watermelon.watermelonbackend.entity;
 
+<<<<<<< HEAD
 import org.w3c.dom.Text;
 
 import java.io.Serializable;
@@ -22,6 +23,68 @@ public class Problem implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+=======
+import java.io.Serializable;
+
+public class Problem implements Serializable {
+
+    private int problemId;
+
+    private String title;
+
+    private String description;
+
+    private String input;
+
+    private String output;
+
+    private String hint;
+
+    private boolean isSpj;
+
+    private int contestId;
+
+    private boolean visible;
+
+    private String tmLimit;
+
+    private String sampleInput;
+
+    private String sampleOutput;
+
+    private String memLimit;
+
+    public String getMemLimit() {
+        return memLimit;
+    }
+
+    public void setMemLimit(String memLimit) {
+        this.memLimit = memLimit;
+    }
+
+    public String getSampleInput() {
+        return sampleInput;
+    }
+
+    public void setSampleInput(String sampleInput) {
+        this.sampleInput = sampleInput;
+    }
+
+    public String getSampleOutput() {
+        return sampleOutput;
+    }
+
+    public void setSampleOutput(String sampleOutput) {
+        this.sampleOutput = sampleOutput;
+    }
+
+    public int getProblemId() {
+        return problemId;
+    }
+
+    public void setProblemId(int problemId) {
+        this.problemId = problemId;
+>>>>>>> dbeed8fb9adc7adadc42aef706c68dffd03163d5
     }
 
     public String getTitle() {
