@@ -16,7 +16,7 @@ public class UploadController {
                                         @RequestParam("file") MultipartFile file,@RequestParam("type") String type,@RequestParam("id") int id) {
         if(file != null) {
             String filePath = "~/problem/" + Integer.toString(id) + "/" + type;
-            if (Upload.uploadFileInPath(file, fileName, filePath)) {
+            if (Upload.getInstance().uploadFileInPath(file, fileName, filePath)) {
                 return true;
             }
         }

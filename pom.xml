@@ -69,11 +69,18 @@
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
-<<<<<<< HEAD
-=======
+        <dependency>
+            <groupId>org.python</groupId>
+            <artifactId>jython-standalone</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.4</version>
+        </dependency>
 
 
->>>>>>> dbeed8fb9adc7adadc42aef706c68dffd03163d5
     </dependencies>
 
     <build>
