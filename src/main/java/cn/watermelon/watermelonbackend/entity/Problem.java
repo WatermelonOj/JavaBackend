@@ -18,7 +18,6 @@ public class Problem implements Serializable {
     private String sampleInput;
     private String sampleOutput;
     private String memLimit;
-
     public String getMemLimit() {
         return memLimit;
     }
