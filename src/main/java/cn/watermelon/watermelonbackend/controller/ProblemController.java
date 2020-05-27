@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class ProblemController
@@ -22,20 +23,34 @@ public class ProblemController
     @RequestMapping(value = "/problem/all", method= RequestMethod.GET)
     public List<Problem> getAll()
     {
-        synchronized (this)
-        {
             if(redisTemplate.opsForValue().get("problem") == null)
             {
-                redisTemplate.opsForValue().set("problem",problemService.findAll());
+                synchronized (this)
+                {
+                    if(redisTemplate.opsForValue().get("problem") == null)
+                    {
+                        redisTemplate.opsForValue().set("problem",problemService.findAll(),300, TimeUnit.SECONDS);
+                    }
+                }
             }
-        }
         return (List<Problem>) redisTemplate.opsForValue().get("problem");
 
     }
     @RequestMapping(value = "/problem/name",method = RequestMethod.GET)
     public List<Problem> getProblemByName(String name)
     {
-        return problemService.findProblemByName(name);
+        String param = "problem_" + name;
+        if(redisTemplate.opsForValue().get(param) == null)
+        {
+            synchronized (this)
+            {
+                if(redisTemplate.opsForValue().get(param) == null)
+                {
+                    redisTemplate.opsForValue().set(param,problemService.findProblemByName(name),10, TimeUnit.SECONDS);
+                }
+            }
+        }
+        return (List<Problem>)redisTemplate.opsForValue().get(param);
     }
     @RequestMapping(value = "/problem/id",method = RequestMethod.GET)
     public List<Problem> getProblemById(int id)
