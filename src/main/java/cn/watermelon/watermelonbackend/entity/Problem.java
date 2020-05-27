@@ -7,6 +7,15 @@ import java.io.Serializable;
 public class Problem implements Serializable {
     private int keyId;
     private String title;
+
+    public int getKeyId() {
+        return keyId;
+    }
+
+    public void setKeyId(int keyId) {
+        this.keyId = keyId;
+    }
+
     private String description;
     private String input;
     private String output;
@@ -42,13 +51,6 @@ public class Problem implements Serializable {
         this.sampleOutput = sampleOutput;
     }
 
-    public int getKeyId() {
-        return keyId;
-    }
-
-    public void setKeyId(int keyId) {
-        this.keyId = keyId;
-    }
 
     public String getTitle() {
         return title;
