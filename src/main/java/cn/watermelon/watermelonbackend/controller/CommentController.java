@@ -26,18 +26,16 @@ public class CommentController {
         comment.setTitle(title);
         comment.setContent(content);
         comment.setFollowId(followId);
-
         commentService.insertComment(comment);
     }
-
     @RequestMapping(value = "", method = RequestMethod.DELETE)
     void deleteComment(Integer commentId) {
         commentService.deleteComment(commentId);
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    List<CommentResponseDTO> getCommentsByProblemId(Integer problemId) {
+    List<CommentResponseDTO> getCommentsByProblemId(Integer problemId)
+    {
         return ConvertUtil.prs2Subs(commentService.getCommentByProblemId(problemId));
     }
-
 }
