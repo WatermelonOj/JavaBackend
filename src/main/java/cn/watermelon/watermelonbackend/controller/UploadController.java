@@ -63,9 +63,9 @@ public class UploadController {
     }
     @RequestMapping(value = "/getimg")
     @ResponseBody
-    public ResponseEntity<Resource  > preview(int id) throws FileNotFoundException
+    public ResponseEntity<Resource> preview(int id,String fileName) throws FileNotFoundException
     {
-        String url = "../Img" + Integer.toString(id) + "/" + "img.png";
+        String url = "file:../Img" + Integer.toString(id) + "/" + fileName;
         try
         {
             return ResponseEntity.ok(resourceLoader.getResource(url));
@@ -73,6 +73,5 @@ public class UploadController {
         {
             return ResponseEntity.notFound().build();
         }
-
     }
 }
