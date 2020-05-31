@@ -46,7 +46,7 @@ public class ProblemController
             {
                 if(redisTemplate.opsForValue().get(param) == null)
                 {
-                    redisTemplate.opsForValue().set(param,problemService.findProblemByName(name),10, TimeUnit.SECONDS);
+                    redisTemplate.opsForValue().set(param,problemService.findProblemByName(name),120, TimeUnit.SECONDS);
                 }
             }
         }
@@ -55,7 +55,19 @@ public class ProblemController
     @RequestMapping(value = "/problem/id",method = RequestMethod.GET)
     public List<Problem> getProblemById(int id)
     {
-        return problemService.findProblemById(id);
+
+        String param = "problemId_" + id;
+        if(redisTemplate.opsForValue().get(param) == null)
+        {
+            synchronized (this)
+            {
+                if(redisTemplate.opsForValue().get(param) == null)
+                {
+                    redisTemplate.opsForValue().set(param,problemService.findProblemById(id),120, TimeUnit.SECONDS);
+                }
+            }
+        }
+        return (List<Problem>)redisTemplate.opsForValue().get(param);
     }
     @RequestMapping(value = "/testredis",method = RequestMethod.GET)
             public String Test()

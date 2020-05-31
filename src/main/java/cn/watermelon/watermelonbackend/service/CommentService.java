@@ -14,4 +14,5 @@ public interface CommentService {
 
     List<Comment> getCommentByProblemId(int problemId);
 
+    void updateNum(int num,int id);
 }

@@ -43,6 +43,7 @@ public interface CommentMapper {
             @Result(property = "userId", column = "user_id"),
             @Result(property = "title", column = "title"),
             @Result(property = "content", column = "content"),
+            @Result(property = "browsingNum",column = "browsingnum")
     })
     List<Comment> getCommentListByProblemId(int problemId);
 
@@ -58,4 +59,9 @@ public interface CommentMapper {
     })
     Comment getCommentByCommentId(int commentId);
 
+    @Update({"UPDATE `comments` SET",
+            "`browsingnum` = #{num}",
+            "WHERE `follow_id` = #{lastFollowId}",
+    })
+    void updateNum(int num,int lastFollowId);
 }
