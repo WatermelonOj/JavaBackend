@@ -37,5 +37,8 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getCommentByProblemId(int problemId) {
         return commentMapper.getCommentListByProblemId(problemId);
     }
-
+    public void updateNum(int num,int id)
+    {
+        commentMapper.updateNum(num,id);
+    }
 }

@@ -36,6 +36,15 @@ public class CommentController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     List<CommentResponseDTO> getCommentsByProblemId(Integer problemId)
     {
+        List<Comment> list = commentService.getCommentByProblemId(problemId);
+        for(int i = 0; i < list.size(); ++i)
+        {
+            list.get(i).setBrowsingNum(list.get(i).getBrowsingNum() + 1);
+        }
+        for (int i = 0; i < list.size(); ++i)
+        {
+            commentService.updateNum(list.get(i).getBrowsingNum(),list.get(i).getCommentId());
+        }
         return ConvertUtil.prs2Subs(commentService.getCommentByProblemId(problemId));
     }
 }

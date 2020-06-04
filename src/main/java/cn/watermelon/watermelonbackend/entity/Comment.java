@@ -20,8 +20,17 @@ public class Comment {
 
     Integer followId;
 
+    int browsingNum;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     Date createTime;
+
+    public int getBrowsingNum() {
+        return browsingNum;
+    }
+
+    public void setBrowsingNum(int browsingNum) {
+        this.browsingNum = browsingNum;
+    }
 
     public int getCommentId() {
         return commentId;
